@@ -1,0 +1,127 @@
+:root {
+    --kr-dark-color: #212121;
+    --kr-light-color: #ebebeb;
+}
+/* #region Sticky Footer */
+html,
+ body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+/* #endregion Sticky Footer */
+
+/* #region navbar, footer */
+    nav, 
+    footer {
+        background-color: var(--kr-theme-900);
+        color: var(--kr-theme-100) !important;
+    }
+
+    .nav-link {
+        color: var(--kr-theme-100);
+    }
+
+    .nav-link:hover {
+        color: var(--kr-theme-300);
+    }
+
+    .nav-link.active {
+        color: var(--kr-theme-100) !important;
+        font-weight: 500;
+    }
+
+    .nav-link.active:hover{
+        color: var(--kr-theme-300) !important;
+    }
+
+    .navbar-brand {
+        color: var(--kr-theme-100);
+    }
+
+    .navbar-brand:hover{
+        color: var(--kr-theme-300);
+    }
+
+    footer .bi{
+        color: var(--kr-theme-200);
+        font-size: 1.5rem;
+        padding-left: .5rem;
+        transition: color 0.25s;
+    }
+
+    footer .bi:hover {
+        color: var(--kr-theme-core);
+    }
+
+/* #endregion navbar, footer */
+
+.btn-primary {
+    --bs-btn-bg: var(--kr-theme-600);
+    --bs-btn-border-color: var(--kr-theme-600);
+    --bs-btn-hover-bg: var(--kr-theme-700);
+    --bs-btn-hover-border-color: var(--kr-theme-700);
+    --bs-btn-active-bg: var(--kr-theme-800);
+    --bs-btn-active-border-color: var(--kr-theme-800);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--kr-theme-600);
+    --bs-btn-border-color: var(--kr-theme-600);
+    --bs-btn-hover-bg: var(--kr-theme-700);
+    --bs-btn-hover-border-color: var(--kr-theme-700);
+    --bs-btn-active-bg: var(--kr-theme-800);
+    --bs-btn-active-border-color: var(--kr-theme-800);
+}
+
+.app-logo {
+    max-width: 360px;
+}
+
+.checklist {
+    list-style-type: none;
+}
+
+.checklist .bi {
+    color: var(--kr-theme-core);
+}
+
+.devicons {
+    font-size: 3.5rem;
+}
+
+.mainText {
+    font-family: 'Antonio', sans-serif;
+}
+
+.subText {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 300;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .app-logo {
+        max-width: 370px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .app-logo {
+        max-width: 450px;
+    }
+}
