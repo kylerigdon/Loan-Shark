@@ -70,19 +70,29 @@
             <div class="col-3 border border-dark">
                 <form action="#">
                     <div class="row g-3 p-3">
+                        <div class="col-6">
                             <label for="#loanNumber" class="form-label">Loan Amount</label>
+                        </div>
+                        <div class="col-6">
                             <input id="loanNumber" class="form-control" placeholder="Loan Amount" type="number"
                                 aria-label="Loan Amount" min="0" required />
-
+                        </div>
+                        <div class="col-6">
                             <label for="#termNumber" class="form-label text-nowrap">Term (Months)</label>
+                        </div>
+                        <div class="col-6">
                             <input id="termNumber" class="form-control" placeholder="Term" type="number"
                                 aria-label="Term (Months)" min="0" required />
-
-                            <label for="#interestNumber" class="form-label">Interest Rate (%)</label>
+                        </div>
+                        <div class="col-6">
+                            <label for="#interestNumber" class="form-label text-nowrap">Interest Rate (%)</label>
+                        </div>
+                        <div class="col-6">
                             <input id="interestNumber" class="form-control" placeholder="Interest Rate" type="number"
-                                aria-label="Interest Rate" min="0" max="100" required>
+                                aria-label="Interest Rate" min="0" max="100" step=".01" required>
+                        </div>
                         <div class="col-12 d-flex mt-5 justify-content-end">
-                            <button type="button" class="btn btn-primary" id="btnSubmit">Calculate</button>
+                            <button type="button" class="btn btn-primary" onclick="getValues()" id="btnSubmit">Calculate</button>
                         </div>
                     </div>
                 </form>
@@ -90,7 +100,7 @@
             <div class="col-9 text-center border border-dark">
                 <h1>Your Monthly Payments</h1>
                 <h2 id="monthlyPayment"></h2>
-                <div class="row d-flex">
+                <div class="row d-flex pt-5">
                     <table class="table-responsive" id="summary">
                         <tr>
                             <td colspan="2">Total Principal:</td>
@@ -161,12 +171,6 @@
 
     <!-- Custom JS -->
     <script src="/js/site.js"></script>
-
-    <script>
-        let button = document.getElementById('btnSubmit');
-        button.addEventListener('click', getValues);
-    </script>
-
 
 </body>
 
