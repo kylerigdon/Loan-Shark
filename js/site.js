@@ -87,6 +87,8 @@ function displayValues(myObject, loanAmount) {
     currency: "USD",
   });
 
+  document.getElementById('monthlyPayment').textContent = usDollar.format(myObject.paymentNum);
+
   let summary = document.getElementById("summary");
   let summaryContent = summary.content;
 
@@ -106,7 +108,7 @@ function displayValues(myObject, loanAmount) {
     let principal = myObject.principalArr[i].toFixed(2);
     let interest = myObject.interestArr[i].toFixed(2);
     let totalInterests = myObject.totalInterestArr[i].toFixed(2);
-    let balance = myObject.balanceArr[i].toFixed(2);
+    let balance = Math.abs(myObject.balanceArr[i]).toFixed(2);
     let totalInterest = myObject.totalInterestNum.toFixed(2);
     let payment = myObject.paymentNum.toFixed(2);
 
