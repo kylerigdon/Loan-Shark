@@ -186,8 +186,14 @@
                             let totalInterest = myObject.totalInterestNum.toFixed(2);
                             let payment = myObject.paymentNum.toFixed(2);
 
-                            tableHtml += `<tr>
-                            <td>${month}</td><td>${payment}</td><td>${principal}</td><td>${interest}</td><td>${totalInterests}</td><td>${balance}</td></tr>`;
+                            tableHtml += `&lt;tr>
+                            &lt;td>${month}&lt;/td>
+                            &lt;td>${payment}&lt;/td>
+                            &lt;td>${principal}&lt;/td>
+                            &lt;td>${interest}&lt;/td>
+                            &lt;td>${totalInterests}&lt;/td>
+                            &lt;td>${balance}&lt;/td>
+                            &lt;/tr>`;
                         }
 
                         let tbody = document.getElementById("tableContent");
@@ -202,21 +208,88 @@
                 <p>The code is structured in three functions.</p>
                 <h5><code>getValues()</code></h5>
                 <p>
-                    The <code>displayMessage</code> function gets the
-                    text from the input element and displays it in
-                    a Sweet Alert popup.
+                    The <code>getValues</code> function gets the
+                    numbers from the input elements. After it has retrieved
+                    the values of the three input elements it then converts each inputs type
+                    from string to number. Then it will run the if/else statement checking to make sure
+                    that the users inputs were numbers and make sure that other conditions are met, if
+                    they are not it will display an error message asking the user to please enter a
+                    valid number. If the inputs meet the conditions then it will start the else part
+                    of the statement which calls the <code>calculateValues</code> function and passes
+                    it the variables balance, term and rate. Once the <code>calculateValues</code>
+                    function has finished and returned an object it will be stored in the variable
+                    calculatedValues which will then be passed as an arguement along with balance
+                    to the <code>displayValues</code> function.
                 </p>
+                <hr>
                 <h5><code>calculateValues()</code></h5>
                 <p>
-                    The <code>displayMessage</code> function gets the
-                    text from the input element and displays it in
-                    a Sweet Alert popup.
+                    The <code>calculateValues</code> function gets the
+                    parameters of balance, term and rate. It starts by declaring a const variable named
+                    totalMonthlyPayment and sets its value to the equation that will become the monthly payment.
+                    Then I declared four empty arrays to push values to later along with two other declared
+                    variables, one previousRemainingBalance with first is set to equal balance the other is
+                    totalInterest which is set to the value of zero.
                 </p>
+                <p>
+                    Next I used a for loop that will incrementally push each month into the termMonths
+                    array. While it is incrementing through the months it will also calculate the
+                    interest payment and push each one to the interest array, also adding each interest payment
+                    to the previous one and pushing it to the totalInterestArr. While adding the interests payment
+                    it will keep track and change the totalInterest variables value to be all the interest payments
+                    added together.
+                </p>
+                <p>
+                    I then declared a variable called principalPayment and set its value to the equation to be
+                    the totalMonthlyPayment minus interestPayment and push each increment to the principalArray.
+                    Then subtracted the previousRemainingBalance by the principalPayment and pushed the new value
+                    to the previousRemainingBalanceArray.
+                </p>
+                <p>
+                    Once the for loop is done I declared a variable called results and made it into an array
+                    containing the arrays and variables I created using the for loop and returned the object
+                    to the <code>getValues</code> function.
+                </p>
+                <hr>
                 <h5><code>displayValues()</code></h5>
                 <p>
-                    The <code>displayMessage</code> function gets the
-                    text from the input element and displays it in
-                    a Sweet Alert popup.
+                    The <code>displayValues</code> function gets the
+                    arguements that the <code>getValues</code> function gave it. Using those as its parameters
+                    set as myObject and loanAmount, then declared variables for totalCost which use loanAmount
+                    and look into myObject for a property named totalInterestNum and add them together and uses
+                    the <code>toFixed(2)</code> method to set it only show only 2 decimal places. Then I declared
+                    two more variable totalPrincipal and loan, setting totalPrincipal to the property in myObject
+                    with the name totalInterestNum and used the toFixed method, the loan variables value is set to
+                    be loanAmount and used the toFixed method on it as well.
+                </p>
+                <p>
+                    I then declared a variable that will format the values it is used on to USD. Once that was done
+                    I used <code>document.getElementById</code> to target the html element with the id of summary and
+                    then
+                    used the content property to target the content of the element with the id of summary. I set
+                    variables called
+                    principalElement and interestElement and used the <code>querySelector</code> method to target the
+                    elements with the classes of totalPrincipal and totalInterest, then used the
+                    <code>textContent</code>
+                    method and changed the text content of the html elements with those classes. The element with
+                    totalPrincipal as its class had its text content changed to the loan variables value formatted to
+                    USD.
+                    The element with the totalInterest class had its text content changed to the property in myObject
+                    with
+                    the name totalInterestNum formatted to USD. Then I declared a variable named costElement and set its
+                    value using the <code>querySelector</code> method to target the html element with the class of
+                    totalCost and changed its text content to the totalCost variable formatted to USD.
+                </p>
+                <p>
+                    I set tableHtml to be an empty string, then utilized a for loop to loop through myObjects property
+                    named monthsArr's length incrementally. I then declared seven variables for each property in
+                    myObject
+                    it will loop through each of the properties at the same index positions that match the value of i.
+                    Once
+                    it has a value from each property it will concatenate a table using these values. After the for loop
+                    has
+                    finished it will take the fully generated table and add it to the tbody.innerHTML. This will display
+                    the finished table on the site for the user.
                 </p>
             </div>
         </div>

@@ -131,7 +131,13 @@ function displayValues(myObject, loanAmount) {
     let payment = myObject.paymentNum.toFixed(2);
 
     tableHtml += `<tr>
-    <td>${month}</td><td>${payment}</td><td>${principal}</td><td>${interest}</td><td>${totalInterests}</td><td>${balance}</td></tr>`;
+    <td>${month}</td>
+    <td>${payment}</td>
+    <td>${principal}</td>
+    <td>${interest}</td>
+    <td>${totalInterests}</td>
+    <td>${balance}</td>
+    </tr>`;
   }
 
   // displaying the created table on the html page
